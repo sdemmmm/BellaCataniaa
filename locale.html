@@ -9,59 +9,90 @@
 </head>
 <body>
 
-    <header>
-        <h1>Bella Italia</h1>
-        <p>La nostra storia</p>
-    </header>
+<header>
+    <h1>Bella Italia</h1>
+    <p>La nostra storia</p>
+</header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="locale.html">Il locale</a>
-        <a href="contatti.html">Contatti</a>
-    </nav>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="locale.html">Il locale</a>
+    <a href="contatti.html">Contatti</a>
+</nav>
 
-    <main>
-        <h2>Chi siamo</h2>
+<main>
+    <h2>La storia di Bella Italia</h2>
 
-        <section>
-            <h3>La storia del ristorante</h3>
-            <p>
-                Bella Italia è un ristorante che nasce dalla passione
-                per la cucina tradizionale italiana. Il nostro obiettivo
-                è offrire ai clienti piatti gustosi in un ambiente
-                semplice e accogliente.
-            </p>
-        </section>
+    <section>
+        <h3>Come è nato il ristorante</h3>
+        <img class="immagine"
+             src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=440&h=300&q=80"
+             alt="Tavoli apparecchiati nel ristorante">
 
-        <section>
-            <h3>Il nostro ambiente</h3>
-            <p>
-                Il locale è pensato per accogliere famiglie, coppie
-                e gruppi di amici. L'ambiente è tranquillo e adatto
-                a pranzi e cene in compagnia.
-            </p>
+        <p>
+            Bella Italia nasce dalla passione per la cucina italiana
+            e per i sapori della tradizione.
+            Il nostro obiettivo è offrire piatti semplici e gustosi
+            in un ambiente accogliente.
+        </p>
+    </section>
 
-            <p>Foto del ristorante:</p>
-            <img src="https://placehold.co/600x300?text=Ristorante+Bella+Italia"
-                 alt="Immagine illustrativa del ristorante"
-                 width="100%">
-        </section>
+    <section>
+        <h3>Il nostro ambiente</h3>
+        <img class="immagine"
+             src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=440&h=300&q=80"
+             alt="Interno del ristorante">
 
-        <section>
-            <h3>I nostri servizi</h3>
-            <ul>
-                <li>Servizio al tavolo</li>
-                <li>Wi-Fi gratuito</li>
-                <li>Tavoli per famiglie e gruppi</li>
-                <li>Possibilità di prenotare un tavolo</li>
-            </ul>
-        </section>
-    </main>
+        <p>
+            Il locale è adatto a famiglie, coppie e gruppi di amici.
+            Gli ambienti sono pensati per trascorrere pranzi e cene
+            in compagnia.
+        </p>
+    </section>
 
-    <footer>
-        <p>Progetto scolastico - Bella Italia</p>
-    </footer>
+    <section>
+        <h3>I nostri servizi</h3>
+        <img class="immagine"
+             src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=440&h=300&q=80"
+             alt="Ambiente di un ristorante">
+
+        <ul>
+            <li>Servizio al tavolo</li>
+            <li>Possibilità di prenotare</li>
+            <li>Tavoli per famiglie e gruppi</li>
+            <li>Ambiente accogliente</li>
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>Progetto scolastico - Bella Italia</p>
+</footer>
+
+<div class="zoom" id="zoom">
+    <span onclick="chiudiZoom()">&times;</span>
+    <img id="immagineGrande" src="" alt="Immagine ingrandita">
+</div>
+
+<script>
+    document.querySelectorAll(".immagine").forEach(function(img) {
+        img.onclick = function() {
+            document.getElementById("immagineGrande").src = img.src;
+            document.getElementById("zoom").style.display = "flex";
+        };
+    });
+
+    function chiudiZoom() {
+        document.getElementById("zoom").style.display = "none";
+    }
+
+    document.getElementById("zoom").onclick = function(event) {
+        if (event.target.id === "zoom") {
+            chiudiZoom();
+        }
+    };
+</script>
 
 </body>
 </html>

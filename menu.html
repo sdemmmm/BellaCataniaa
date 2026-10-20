@@ -9,62 +9,108 @@
 </head>
 <body>
 
-    <header>
-        <h1>Bella Italia</h1>
-        <p>Il nostro menu</p>
-    </header>
+<header>
+    <h1>Bella Italia</h1>
+    <p>Il nostro menu</p>
+</header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="locale.html">Il locale</a>
-        <a href="contatti.html">Contatti</a>
-    </nav>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="locale.html">Il locale</a>
+    <a href="contatti.html">Contatti</a>
+</nav>
 
-    <main>
-        <h2>I nostri piatti</h2>
-        <p>Ecco alcuni dei piatti che puoi trovare nel nostro ristorante.</p>
+<main>
+    <h2>I nostri piatti</h2>
+    <p>Scopri le specialità del ristorante.</p>
+
+    <div class="immagini-menu">
 
         <section>
             <h3>Pizza Margherita</h3>
+            <img class="immagine"
+                src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=440&h=300&q=80"
+                alt="Pizza Margherita">
             <p>Pomodoro, mozzarella e basilico.</p>
-            <p>Prezzo: 8 euro</p>
+            <p><strong>Prezzo: 8 euro</strong></p>
         </section>
 
         <section>
             <h3>Lasagne al forno</h3>
+            <img class="immagine"
+                src="https://images.unsplash.com/photo-1574894709920-11b28e7367e3?auto=format&fit=crop&w=440&h=300&q=80"
+                alt="Lasagne al forno">
             <p>Lasagne con ragù e besciamella.</p>
-            <p>Prezzo: 12 euro</p>
+            <p><strong>Prezzo: 12 euro</strong></p>
         </section>
 
         <section>
             <h3>Spaghetti alla carbonara</h3>
-            <p>Pasta con uova, pecorino e guanciale.</p>
-            <p>Prezzo: 11 euro</p>
+            <img class="immagine"
+                src="https://images.unsplash.com/photo-1612874742237-6526221588e3?auto=format&fit=crop&w=440&h=300&q=80"
+                alt="Spaghetti">
+            <p>Pasta, uova, pecorino e guanciale.</p>
+            <p><strong>Prezzo: 11 euro</strong></p>
         </section>
 
         <section>
             <h3>Risotto ai funghi</h3>
+            <img class="immagine"
+                src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?auto=format&fit=crop&w=440&h=300&q=80"
+                alt="Piatto di risotto">
             <p>Risotto cremoso con funghi.</p>
-            <p>Prezzo: 13 euro</p>
+            <p><strong>Prezzo: 13 euro</strong></p>
         </section>
 
         <section>
             <h3>Parmigiana di melanzane</h3>
+            <img class="immagine"
+                src="https://images.unsplash.com/photo-1505576633757-0ac1084af824?auto=format&fit=crop&w=440&h=300&q=80"
+                alt="Piatto di verdure">
             <p>Melanzane al forno con pomodoro e formaggio.</p>
-            <p>Prezzo: 10 euro</p>
+            <p><strong>Prezzo: 10 euro</strong></p>
         </section>
 
         <section>
             <h3>Tiramisù</h3>
+            <img class="immagine"
+                src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=440&h=300&q=80"
+                alt="Tiramisù">
             <p>Dolce al mascarpone e caffè.</p>
-            <p>Prezzo: 6 euro</p>
+            <p><strong>Prezzo: 6 euro</strong></p>
         </section>
-    </main>
 
-    <footer>
-        <p>Progetto scolastico - Bella Italia</p>
-    </footer>
+    </div>
+</main>
+
+<footer>
+    <p>Progetto scolastico - Bella Italia</p>
+</footer>
+
+<div class="zoom" id="zoom">
+    <span onclick="chiudiZoom()">&times;</span>
+    <img id="immagineGrande" src="" alt="Piatto ingrandito">
+</div>
+
+<script>
+    document.querySelectorAll(".immagini-menu .immagine").forEach(function(img) {
+        img.onclick = function() {
+            document.getElementById("immagineGrande").src = img.src;
+            document.getElementById("zoom").style.display = "flex";
+        };
+    });
+
+    function chiudiZoom() {
+        document.getElementById("zoom").style.display = "none";
+    }
+
+    document.getElementById("zoom").onclick = function(event) {
+        if (event.target.id === "zoom") {
+            chiudiZoom();
+        }
+    };
+</script>
 
 </body>
 </html>

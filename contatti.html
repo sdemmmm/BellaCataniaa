@@ -9,55 +9,95 @@
 </head>
 <body>
 
-    <header>
-        <h1>Bella Italia</h1>
-        <p>Contatti e informazioni</p>
-    </header>
+<header>
+    <h1>Bella Italia</h1>
+    <p>Contatti e informazioni</p>
+</header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="locale.html">Il locale</a>
-        <a href="contatti.html">Contatti</a>
-    </nav>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="locale.html">Il locale</a>
+    <a href="contatti.html">Contatti</a>
+</nav>
 
-    <main>
-        <h2>Vieni a trovarci</h2>
+<main>
+    <h2>Vieni a trovarci</h2>
 
-        <section>
-            <h3>Indirizzo</h3>
-            <p>Via Roma 10, Milano</p>
-            <p>Indirizzo di esempio per il progetto scolastico.</p>
-        </section>
+    <section>
+        <h3>Il nostro ristorante</h3>
+        <img class="immagine"
+             src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=440&h=300&q=80"
+             alt="Esterno e ingresso di un ristorante">
 
-        <section>
-            <h3>Telefono</h3>
-            <p>02 1234567 (numero dimostrativo)</p>
-        </section>
+        <p>
+            Ti aspettiamo da Bella Italia per gustare
+            i piatti della cucina tradizionale.
+        </p>
+    </section>
 
-        <section>
-            <h3>Orari di apertura</h3>
-            <ul>
-                <li>Lunedì: chiuso</li>
-                <li>Martedì - Venerdì: 12:00 - 14:30, 19:00 - 22:30</li>
-                <li>Sabato: 12:00 - 15:00, 19:00 - 23:00</li>
-                <li>Domenica: 12:00 - 15:00, 19:00 - 22:00</li>
-            </ul>
-        </section>
+    <section>
+        <h3>Indirizzo</h3>
+        <p>Via Roma 10, Milano</p>
+        <p>Indirizzo dimostrativo per il progetto scolastico.</p>
+    </section>
 
-        <section>
-            <h3>Come raggiungerci</h3>
-            <p>
-                Il ristorante si trova in una zona centrale,
-                raggiungibile a piedi o con i mezzi pubblici.
-            </p>
-            <p>Le informazioni sono illustrative e non reali.</p>
-        </section>
-    </main>
+    <section>
+        <h3>Telefono</h3>
+        <p>02 1234567 (numero di esempio)</p>
+    </section>
 
-    <footer>
-        <p>Progetto scolastico - Bella Italia</p>
-    </footer>
+    <section>
+        <h3>Orari di apertura</h3>
+        <ul>
+            <li>Lunedì: chiuso</li>
+            <li>Martedì - Venerdì: 12:00-14:30 e 19:00-22:30</li>
+            <li>Sabato: 12:00-15:00 e 19:00-23:00</li>
+            <li>Domenica: 12:00-15:00 e 19:00-22:00</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Come raggiungerci</h3>
+        <img class="immagine"
+             src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=440&h=300&q=80"
+             alt="Sala interna del ristorante">
+
+        <p>
+            Il ristorante si trova in una zona centrale,
+            raggiungibile a piedi o con i mezzi pubblici.
+        </p>
+        <p>Le indicazioni sono illustrative.</p>
+    </section>
+</main>
+
+<footer>
+    <p>Progetto scolastico - Bella Italia</p>
+</footer>
+
+<div class="zoom" id="zoom">
+    <span onclick="chiudiZoom()">&times;</span>
+    <img id="immagineGrande" src="" alt="Immagine ingrandita">
+</div>
+
+<script>
+    document.querySelectorAll(".immagine").forEach(function(img) {
+        img.onclick = function() {
+            document.getElementById("immagineGrande").src = img.src;
+            document.getElementById("zoom").style.display = "flex";
+        };
+    });
+
+    function chiudiZoom() {
+        document.getElementById("zoom").style.display = "none";
+    }
+
+    document.getElementById("zoom").onclick = function(event) {
+        if (event.target.id === "zoom") {
+            chiudiZoom();
+        }
+    };
+</script>
 
 </body>
 </html>
