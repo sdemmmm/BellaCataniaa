@@ -1,72 +1,397 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f8f5f0;
-    color: #333333;
+
+
+
+:root {
+    --rosso: #b83227;
+    --rosso-scuro: #86251e;
+    --crema: #fffaf2;
+    --bianco: #ffffff;
+    --testo: #292521;
+    --testo-secondario: #71685f;
+    --bordo: #eee3d6;
+    --ombra: 0 10px 30px rgba(55, 35, 20, 0.08);
 }
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--crema);
+    color: var(--testo);
+    line-height: 1.7;
+}
+
+/* ========================================
+   INTESTAZIONE
+======================================== */
 
 header {
-    background-color: #8b2929;
-    color: white;
+    position: relative;
+    overflow: hidden;
+    padding: 65px 20px 55px;
     text-align: center;
-    padding: 20px;
+    color: var(--bianco);
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255, 210, 160, 0.22),
+            transparent 40%
+        ),
+        linear-gradient(135deg, #79251f, #c64b35);
 }
 
+header h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+header p {
+    margin: 15px 0 0;
+    color: #ffebe0;
+    font-size: 1.08rem;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   NAVIGAZIONE
+======================================== */
+
 nav {
-    background-color: #eeeeee;
-    text-align: center;
-    padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--bordo);
+    box-shadow: 0 4px 18px rgba(40, 25, 15, 0.04);
+    backdrop-filter: blur(12px);
 }
 
 nav a {
-    color: #333333;
+    padding: 9px 18px;
+    border-radius: 30px;
+    color: var(--testo);
     text-decoration: none;
-    margin: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
 }
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--bianco);
+    background: var(--rosso);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   CONTENUTO PRINCIPALE
+======================================== */
 
 main {
-    width: 80%;
-    margin: 20px auto;
+    width: min(1100px, calc(100% - 36px));
+    margin: 50px auto 70px;
 }
 
-section {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border: 1px solid #dddddd;
+main > h2 {
+    margin: 0 0 18px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.25;
+}
+
+main > p {
+    max-width: 760px;
+    color: var(--testo-secondario);
+    font-size: 1.06rem;
+}
+
+h2,
+h3 {
+    color: var(--testo);
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+
+p {
+    overflow-wrap: anywhere;
 }
 
 a {
-    color: #8b2929;
+    color: var(--rosso);
 }
 
-footer {
-    background-color: #eeeeee;
-    text-align: center;
-    padding: 10px;
+a:focus-visible,
+button:focus-visible,
+.immagine:focus-visible {
+    outline: 3px solid #e6a44d;
+    outline-offset: 4px;
 }
+
+/* ========================================
+   SCHEDE E SEZIONI
+======================================== */
+
+main section {
+    min-width: 0;
+    margin: 25px 0;
+    padding: 26px;
+    background: var(--bianco);
+    border: 1px solid var(--bordo);
+    border-radius: 18px;
+    box-shadow: var(--ombra);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+main section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 38px rgba(55, 35, 20, 0.12);
+}
+
+main section p {
+    color: var(--testo-secondario);
+}
+
+/* Collegamenti nelle schede */
+
+main section a {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 10px 17px;
+    border-radius: 8px;
+    color: var(--bianco);
+    background: var(--rosso);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+main section a:hover {
+    background: var(--rosso-scuro);
+}
+
+/* ========================================
+   MENU DEI PIATTI
+======================================== */
 
 .immagini-menu {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+    margin-top: 30px;
 }
 
 .immagini-menu section {
+    display: flex;
+    flex-direction: column;
     margin: 0;
+    padding: 18px;
+    overflow: hidden;
+}
+
+.immagini-menu section h3 {
+    margin-bottom: 14px;
+}
+
+.immagini-menu section p {
+    margin: 8px 0;
+}
+
+.immagini-menu section p:last-child {
+    margin-top: auto;
+    padding-top: 12px;
+    color: var(--rosso);
+}
+
+.immagini-menu section strong {
+    font-size: 1.05rem;
+}
+
+/* ========================================
+   IMMAGINI
+======================================== */
+
+.immagine {
+    display: block;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: zoom-in;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.immagine:hover {
+    transform: scale(1.025);
+    filter: brightness(0.94);
 }
 
 .immagini-menu .immagine {
-    width: 220px;
-    max-width: 100%;
-    height: 150px;
-    object-fit: cover;
+    height: 200px;
+}
+
+/* ========================================
+   CONTATTI E LISTE
+======================================== */
+
+main ul {
+    padding-left: 22px;
+}
+
+main li {
+    margin: 8px 0;
+}
+
+main li::marker {
+    color: var(--rosso);
+}
+
+/* ========================================
+   INGRANDIMENTO DELLE FOTO
+======================================== */
+
+.zoom {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(20, 15, 12, 0.92);
+    cursor: zoom-out;
+}
+
+.zoom img {
     display: block;
+    max-width: min(100%, 1000px);
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.zoom span {
+    position: absolute;
+    top: 15px;
+    right: 28px;
+    color: white;
+    font-size: 3rem;
+    line-height: 1;
     cursor: pointer;
 }
 
-@media (max-width: 700px) {
+/* ========================================
+   PIE' DI PAGINA
+======================================== */
+
+footer {
+    padding: 28px 20px;
+    text-align: center;
+    color: #f7e9dd;
+    background: #292521;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.92rem;
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 850px) {
+    .immagini-menu {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    main {
+        margin-top: 35px;
+    }
+}
+
+/* ========================================
+   SMARTPHONE
+======================================== */
+
+@media (max-width: 560px) {
+    header {
+        padding: 45px 16px 38px;
+    }
+
+    nav {
+        gap: 4px;
+        padding: 10px 6px;
+    }
+
+    nav a {
+        padding: 8px 11px;
+        font-size: 0.88rem;
+    }
+
+    main {
+        width: calc(100% - 28px);
+        margin: 28px auto 45px;
+    }
+
+    main section {
+        padding: 19px;
+        margin: 20px 0;
+    }
+
     .immagini-menu {
         grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .immagini-menu .immagine,
+    .immagine {
+        height: 220px;
+    }
+
+    .zoom {
+        padding: 14px;
+    }
+
+    .zoom span {
+        top: 12px;
+        right: 18px;
+    }
+}
+
+/* Rispetta chi preferisce meno animazioni */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }
